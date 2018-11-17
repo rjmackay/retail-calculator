@@ -1,14 +1,33 @@
 import React, { Component } from 'react';
 import './CalculatorForm.css';
 
-class CalculatorForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+export const actions = {
+  init() {
+    return {
       numberOfItems: '',
       pricePerItem: '',
       lastSubmission: {}
     };
+  },
+  setNumberOfItems(state, numberOfItems) {
+    return {...state, numberOfItems};
+  },
+  setPricePerItem(state, pricePerItem) {
+    return {...state, pricePerItem};
+  },
+  saveLastSubmission(state) {
+    let lastSubmission = {
+      numberOfItems: state.numberOfItems,
+      pricePerItem: state.pricePerItem
+    };
+    return {...state, lastSubmission};
+  }
+};
+
+class CalculatorForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = actions.init();
 
     this.handleNumberOfItemsChange = this.handleNumberOfItemsChange.bind(this);
     this.handlePricePerItemChange = this.handlePricePerItemChange.bind(this);
@@ -16,22 +35,17 @@ class CalculatorForm extends Component {
   }
 
   handleNumberOfItemsChange(event) {
-    this.setState({numberOfItems: event.target.value});
+    this.setState(actions.setNumberOfItems(this.state, event.target.value));
   }
 
   handlePricePerItemChange(event) {
-    this.setState({pricePerItem: event.target.value});
+    this.setState(actions.setPricePerItem(this.state, event.target.value));
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState({
-      lastSubmission: {
-        numberOfItems: this.state.numberOfItems,
-        pricePerItem: this.state.pricePerItem
-      }
-    });
+    this.setState(actions.saveLastSubmission(this.state));
   }
 
   render() {

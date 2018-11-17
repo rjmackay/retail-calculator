@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import CalculatorForm from './CalculatorForm';
+import CalculatorForm, { actions } from './CalculatorForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -28,10 +28,91 @@ it('saves numberOfItems to state and outputs it', () => {
   // Submit the form
   let submit = component.root.findByType('form');
   submit.props.onSubmit({
-  	preventDefault : () => {}
+    preventDefault : () => {}
   });
 
   // re-rendering
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+describe('actions', () => {
+  it('setNumberOfItems', () => {
+    expect(actions.setNumberOfItems({
+        numberOfItems: '',
+        pricePerItem: '',
+        lastSubmission: {}
+      }, 100)
+    ).toEqual({
+      numberOfItems: 100,
+      pricePerItem: '',
+      lastSubmission: {}
+    })
+
+    expect(actions.setNumberOfItems({
+        numberOfItems: 124,
+        pricePerItem: '',
+        lastSubmission: {}
+      }, 100)
+    ).toEqual({
+      numberOfItems: 100,
+      pricePerItem: '',
+      lastSubmission: {}
+    })
+  });
+  it('setPricePerItem', () => {
+    expect(actions.setPricePerItem({
+        numberOfItems: '',
+        pricePerItem: '',
+        lastSubmission: {}
+      }, 100)
+    ).toEqual({
+      numberOfItems: '',
+      pricePerItem: 100,
+      lastSubmission: {}
+    })
+
+    expect(actions.setPricePerItem({
+        numberOfItems: '',
+        pricePerItem: 857,
+        lastSubmission: {}
+      }, 100)
+    ).toEqual({
+      numberOfItems: '',
+      pricePerItem: 100,
+      lastSubmission: {}
+    })
+  });
+  it('saveLastSubmission', () => {
+    expect(actions.saveLastSubmission({
+        numberOfItems: 100,
+        pricePerItem: 200,
+        lastSubmission: {}
+      })
+    ).toEqual({
+      numberOfItems: 100,
+      pricePerItem: 200,
+      lastSubmission: {
+        numberOfItems: 100,
+        pricePerItem: 200,
+      }
+    })
+
+    expect(actions.saveLastSubmission({
+        numberOfItems: 1000,
+        pricePerItem: 3000,
+        lastSubmission: {
+          numberOfItems: 100,
+          pricePerItem: 200,
+        }
+      })
+    ).toEqual({
+      numberOfItems: 1000,
+      pricePerItem: 3000,
+      lastSubmission: {
+        numberOfItems: 1000,
+        pricePerItem: 3000,
+      }
+    })
+  });
+})
