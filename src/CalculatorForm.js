@@ -24,6 +24,10 @@ export const actions = {
   }
 };
 
+export const getTotal = (submission) => {
+  return submission.numberOfItems * submission.pricePerItem;
+};
+
 class CalculatorForm extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +53,7 @@ class CalculatorForm extends Component {
   }
 
   render() {
+    let total = getTotal(this.state.lastSubmission);
     return (
       <div className="CalculatorForm">
         <h2>Purchase Form</h2>
@@ -72,6 +77,9 @@ class CalculatorForm extends Component {
         <p>
           Number of items: {this.state.lastSubmission.numberOfItems}<br />
           Price per item: ${this.state.lastSubmission.pricePerItem}
+        </p>
+        <p>
+          Total: ${total ? total : ''}
         </p>
       </div>
     );
