@@ -9,11 +9,11 @@ export const actions = {
       lastSubmission: {}
     };
   },
-  setNumberOfItems(state, numberOfItems) {
-    return {...state, numberOfItems};
+  setNumberOfItems(numberOfItems) {
+    return { numberOfItems };
   },
-  setPricePerItem(state, pricePerItem) {
-    return {...state, pricePerItem};
+  setPricePerItem(pricePerItem) {
+    return { pricePerItem };
   },
   saveLastSubmission(state) {
     let lastSubmission = {
@@ -35,17 +35,17 @@ class CalculatorForm extends Component {
   }
 
   handleNumberOfItemsChange(event) {
-    this.setState(actions.setNumberOfItems(this.state, event.target.value));
+    this.setState(actions.setNumberOfItems(event.target.value));
   }
 
   handlePricePerItemChange(event) {
-    this.setState(actions.setPricePerItem(this.state, event.target.value));
+    this.setState(actions.setPricePerItem(event.target.value));
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState(actions.saveLastSubmission(this.state));
+    this.setState(actions.saveLastSubmission);
   }
 
   render() {
