@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`has a numberOfItemsInput 1`] = `
+<div
+  className="CalculatorForm"
+>
+  <h2>
+    Purchase Form
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Number of items:
+      <input
+        name="numberOfItems"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <h3>
+    Results:
+  </h3>
+  <p>
+    Number of items: 
+  </p>
+</div>
+`;
+
+exports[`has a numberOfItemsInput 2`] = `
+<div
+  className="CalculatorForm"
+>
+  <h2>
+    Purchase Form
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Number of items:
+      <input
+        name="numberOfItems"
+        onChange={[Function]}
+        type="text"
+        value="100"
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <h3>
+    Results:
+  </h3>
+  <p>
+    Number of items: 
+    100
+  </p>
+</div>
+`;
+
+exports[`saves numberOfItems to state and outputs it 1`] = `
+<div
+  className="CalculatorForm"
+>
+  <h2>
+    Purchase Form
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Number of items:
+      <input
+        name="numberOfItems"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <h3>
+    Results:
+  </h3>
+  <p>
+    Number of items: 
+  </p>
+</div>
+`;
+
+exports[`saves numberOfItems to state and outputs it 2`] = `
+<div
+  className="CalculatorForm"
+>
+  <h2>
+    Purchase Form
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Number of items:
+      <input
+        name="numberOfItems"
+        onChange={[Function]}
+        type="text"
+        value="100"
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <h3>
+    Results:
+  </h3>
+  <p>
+    Number of items: 
+    100
+  </p>
+</div>
+`;
