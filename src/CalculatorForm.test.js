@@ -38,49 +38,15 @@ it('saves numberOfItems to state and outputs it', () => {
 
 describe('actions', () => {
   it('setNumberOfItems', () => {
-    expect(actions.setNumberOfItems({
-        numberOfItems: '',
-        pricePerItem: '',
-        lastSubmission: {}
-      }, 100)
+    expect(actions.setNumberOfItems(100)
     ).toEqual({
-      numberOfItems: 100,
-      pricePerItem: '',
-      lastSubmission: {}
-    })
-
-    expect(actions.setNumberOfItems({
-        numberOfItems: 124,
-        pricePerItem: '',
-        lastSubmission: {}
-      }, 100)
-    ).toEqual({
-      numberOfItems: 100,
-      pricePerItem: '',
-      lastSubmission: {}
+      numberOfItems: 100
     })
   });
   it('setPricePerItem', () => {
-    expect(actions.setPricePerItem({
-        numberOfItems: '',
-        pricePerItem: '',
-        lastSubmission: {}
-      }, 100)
+    expect(actions.setPricePerItem(100)
     ).toEqual({
-      numberOfItems: '',
-      pricePerItem: 100,
-      lastSubmission: {}
-    })
-
-    expect(actions.setPricePerItem({
-        numberOfItems: '',
-        pricePerItem: 857,
-        lastSubmission: {}
-      }, 100)
-    ).toEqual({
-      numberOfItems: '',
-      pricePerItem: 100,
-      lastSubmission: {}
+      pricePerItem: 100
     })
   });
   it('saveLastSubmission', () => {
