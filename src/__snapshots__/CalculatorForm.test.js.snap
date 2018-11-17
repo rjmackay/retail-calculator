@@ -1,72 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`has a numberOfItemsInput 1`] = `
-<div
-  className="CalculatorForm"
->
-  <h2>
-    Purchase Form
-  </h2>
-  <form
-    onSubmit={[Function]}
-  >
-    <label>
-      Number of items:
-      <input
-        name="numberOfItems"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <h3>
-    Results:
-  </h3>
-  <p>
-    Number of items: 
-  </p>
-</div>
-`;
-
-exports[`has a numberOfItemsInput 2`] = `
-<div
-  className="CalculatorForm"
->
-  <h2>
-    Purchase Form
-  </h2>
-  <form
-    onSubmit={[Function]}
-  >
-    <label>
-      Number of items:
-      <input
-        name="numberOfItems"
-        onChange={[Function]}
-        type="text"
-        value="100"
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <h3>
-    Results:
-  </h3>
-  <p>
-    Number of items: 
-    100
-  </p>
-</div>
-`;
-
 exports[`saves numberOfItems to state and outputs it 1`] = `
 <div
   className="CalculatorForm"
@@ -77,15 +10,28 @@ exports[`saves numberOfItems to state and outputs it 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <label>
-      Number of items:
-      <input
-        name="numberOfItems"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </label>
+    <div>
+      <label>
+        Number of items:
+        <input
+          name="numberOfItems"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        Price per item:
+        <input
+          name="pricePerItem"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
     <input
       type="submit"
       value="Submit"
@@ -96,6 +42,8 @@ exports[`saves numberOfItems to state and outputs it 1`] = `
   </h3>
   <p>
     Number of items: 
+    <br />
+    Price per item: $
   </p>
 </div>
 `;
@@ -110,15 +58,28 @@ exports[`saves numberOfItems to state and outputs it 2`] = `
   <form
     onSubmit={[Function]}
   >
-    <label>
-      Number of items:
-      <input
-        name="numberOfItems"
-        onChange={[Function]}
-        type="text"
-        value="100"
-      />
-    </label>
+    <div>
+      <label>
+        Number of items:
+        <input
+          name="numberOfItems"
+          onChange={[Function]}
+          type="text"
+          value="100"
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        Price per item:
+        <input
+          name="pricePerItem"
+          onChange={[Function]}
+          type="text"
+          value="200"
+        />
+      </label>
+    </div>
     <input
       type="submit"
       value="Submit"
@@ -130,6 +91,9 @@ exports[`saves numberOfItems to state and outputs it 2`] = `
   <p>
     Number of items: 
     100
+    <br />
+    Price per item: $
+    200
   </p>
 </div>
 `;
