@@ -45,6 +45,10 @@ exports[`saves numberOfItems to state and outputs it 1`] = `
     <br />
     Price per item: $
   </p>
+  <p>
+    Total: $
+    
+  </p>
 </div>
 `;
 
@@ -94,6 +98,10 @@ exports[`saves numberOfItems to state and outputs it 2`] = `
     <br />
     Price per item: $
     200
+  </p>
+  <p>
+    Total: $
+    20000
   </p>
 </div>
 `;

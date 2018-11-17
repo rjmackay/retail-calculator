@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import CalculatorForm, { actions } from './CalculatorForm';
+import CalculatorForm, { actions, getTotal } from './CalculatorForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -81,4 +81,11 @@ describe('actions', () => {
       }
     })
   });
-})
+});
+
+it('getTotal calculates total', () => {
+  expect(getTotal({
+    numberOfItems: 100,
+    pricePerItem: 300
+  })).toEqual(30000);
+});
