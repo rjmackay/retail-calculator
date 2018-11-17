@@ -39,8 +39,8 @@ class CalculatorForm extends Component {
           <input type="submit" value="Submit"/>
         </form>
 
+        <h3>Results:</h3>
         <p>
-          <h3>Results:</h3>
           Number of items: {this.state.lastSubmission.numberOfItems}
         </p>
       </div>
