@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import CalculatorForm, { actions, getTotal } from './CalculatorForm';
+import CalculatorForm, { actions } from './CalculatorForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -10,8 +10,9 @@ it('renders without crashing', () => {
 });
 
 it('saves numberOfItems to state and outputs it', () => {
+  const submitHandler = jest.fn();
   const component = renderer.create(
-    <CalculatorForm />,
+    <CalculatorForm onSubmit={submitHandler} />,
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -49,43 +50,4 @@ describe('actions', () => {
       pricePerItem: 100
     })
   });
-  it('saveLastSubmission', () => {
-    expect(actions.saveLastSubmission({
-        numberOfItems: 100,
-        pricePerItem: 200,
-        lastSubmission: {}
-      })
-    ).toEqual({
-      numberOfItems: 100,
-      pricePerItem: 200,
-      lastSubmission: {
-        numberOfItems: 100,
-        pricePerItem: 200,
-      }
-    })
-
-    expect(actions.saveLastSubmission({
-        numberOfItems: 1000,
-        pricePerItem: 3000,
-        lastSubmission: {
-          numberOfItems: 100,
-          pricePerItem: 200,
-        }
-      })
-    ).toEqual({
-      numberOfItems: 1000,
-      pricePerItem: 3000,
-      lastSubmission: {
-        numberOfItems: 1000,
-        pricePerItem: 3000,
-      }
-    })
-  });
-});
-
-it('getTotal calculates total', () => {
-  expect(getTotal({
-    numberOfItems: 100,
-    pricePerItem: 300
-  })).toEqual(30000);
 });

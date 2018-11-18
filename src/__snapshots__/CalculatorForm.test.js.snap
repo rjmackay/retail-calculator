@@ -37,18 +37,6 @@ exports[`saves numberOfItems to state and outputs it 1`] = `
       value="Submit"
     />
   </form>
-  <h3>
-    Results:
-  </h3>
-  <p>
-    Number of items: 
-    <br />
-    Price per item: $
-  </p>
-  <p>
-    Total: $
-    
-  </p>
 </div>
 `;
 
@@ -89,19 +77,5 @@ exports[`saves numberOfItems to state and outputs it 2`] = `
       value="Submit"
     />
   </form>
-  <h3>
-    Results:
-  </h3>
-  <p>
-    Number of items: 
-    100
-    <br />
-    Price per item: $
-    200
-  </p>
-  <p>
-    Total: $
-    20000
-  </p>
 </div>
 `;

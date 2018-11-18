@@ -14,18 +14,7 @@ export const actions = {
   },
   setPricePerItem(pricePerItem) {
     return { pricePerItem };
-  },
-  saveLastSubmission(state) {
-    let lastSubmission = {
-      numberOfItems: state.numberOfItems,
-      pricePerItem: state.pricePerItem
-    };
-    return {...state, lastSubmission};
   }
-};
-
-export const getTotal = (submission) => {
-  return submission.numberOfItems * submission.pricePerItem;
 };
 
 class CalculatorForm extends Component {
@@ -49,11 +38,10 @@ class CalculatorForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState(actions.saveLastSubmission);
+    this.props.onSubmit(this.state);
   }
 
   render() {
-    let total = getTotal(this.state.lastSubmission);
     return (
       <div className="CalculatorForm">
         <h2>Purchase Form</h2>
@@ -72,15 +60,6 @@ class CalculatorForm extends Component {
           </div>
           <input type="submit" value="Submit"/>
         </form>
-
-        <h3>Results:</h3>
-        <p>
-          Number of items: {this.state.lastSubmission.numberOfItems}<br />
-          Price per item: ${this.state.lastSubmission.pricePerItem}
-        </p>
-        <p>
-          Total: ${total ? total : ''}
-        </p>
       </div>
     );
   }
