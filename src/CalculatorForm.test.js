@@ -32,6 +32,12 @@ it('saves numberOfItems to state and outputs it', () => {
     preventDefault : () => {}
   });
 
+  expect(submitHandler.mock.calls.length).toBe(1);
+  expect(submitHandler.mock.calls[0]).toEqual([{
+    numberOfItems: "100",
+    pricePerItem: "200",
+  }]);
+
   // re-rendering
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();

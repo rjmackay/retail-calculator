@@ -5,8 +5,7 @@ export const actions = {
   init() {
     return {
       numberOfItems: '',
-      pricePerItem: '',
-      lastSubmission: {}
+      pricePerItem: ''
     };
   },
   setNumberOfItems(numberOfItems) {
