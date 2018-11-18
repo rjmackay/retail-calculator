@@ -22,4 +22,16 @@ export const getTotal = (submission) => {
   return submission.numberOfItems * submission.pricePerItem;
 };
 
+const stateCodeMap = {
+  UT: 6.85,
+  TX: 6.25,
+  CA: 8.25,
+  NV: 8.0,
+  AL: 4.0
+}
+
+export const getTaxRate = (stateCode) => {
+  return stateCodeMap[stateCode];
+}
+
 export default CalculatorOutput;
