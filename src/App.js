@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <CalculatorForm onSubmit={this.handleSubmit} />
-        <CalculatorOutput numberOfItems={this.state.numberOfItems} pricePerItem={this.state.pricePerItem} />
+        <CalculatorOutput numberOfItems={this.state.numberOfItems} pricePerItem={this.state.pricePerItem} stateCode={this.state.stateCode} />
       </div>
     );
   }
