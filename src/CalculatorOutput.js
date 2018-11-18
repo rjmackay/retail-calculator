@@ -4,6 +4,7 @@ class CalculatorOutput extends Component {
   render() {
     let total = getTotal(this.props);
     let taxRate = getTaxRate(this.props.stateCode);
+    let tax = getTax(total, taxRate);
     return (
       <div className="CalculatorOutput">
         <h3>Results:</h3>
@@ -12,8 +13,9 @@ class CalculatorOutput extends Component {
           Price per item: ${this.props.pricePerItem}
         </p>
         <p>
+          Subtotal: ${total ? total : ''}<br />
+          Tax: ${tax ? tax : ''} ({taxRate}%)<br />
           Total: ${total ? total : ''} (excl. tax)<br />
-          Tax rate: {taxRate}%
         </p>
       </div>
     );
@@ -34,6 +36,10 @@ const stateCodeMap = {
 
 export const getTaxRate = (stateCode) => {
   return stateCodeMap[stateCode];
+}
+
+export const getTax = (subtotal, taxRate) => {
+  return (subtotal / 100) * taxRate;
 }
 
 export default CalculatorOutput;

@@ -15,13 +15,19 @@ exports[` 1`] = `
     200
   </p>
   <p>
+    Subtotal: $
+    20000
+    <br />
+    Tax: $
+    1370
+     (
+    6.85
+    %)
+    <br />
     Total: $
     20000
      (excl. tax)
     <br />
-    Tax rate: 
-    6.85
-    %
   </p>
 </div>
 `;
