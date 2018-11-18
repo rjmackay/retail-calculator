@@ -26,11 +26,22 @@ it('saves numberOfItems to state and outputs it', () => {
   let priceInput = component.root.findByProps({name : 'pricePerItem'});
   priceInput.props.onChange({ target: { value: '200' } });
 
+  // Set state code
+  let stateInput = component.root.findByProps({name : 'stateCode'});
+  stateInput.props.onChange({ target: { value: 'UT' } });
+
   // Submit the form
   let submit = component.root.findByType('form');
   submit.props.onSubmit({
     preventDefault : () => {}
   });
+
+  expect(submitHandler.mock.calls.length).toBe(1);
+  expect(submitHandler.mock.calls[0]).toEqual([{
+    numberOfItems: "100",
+    pricePerItem: "200",
+    stateCode: 'UT'
+  }]);
 
   // re-rendering
   tree = component.toJSON();

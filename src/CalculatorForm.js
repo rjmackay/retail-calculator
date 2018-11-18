@@ -6,7 +6,7 @@ export const actions = {
     return {
       numberOfItems: '',
       pricePerItem: '',
-      lastSubmission: {}
+      stateCode: ''
     };
   },
   setNumberOfItems(numberOfItems) {
@@ -14,6 +14,9 @@ export const actions = {
   },
   setPricePerItem(pricePerItem) {
     return { pricePerItem };
+  },
+  setStateCode(stateCode) {
+    return { stateCode };
   }
 };
 
@@ -24,6 +27,7 @@ class CalculatorForm extends Component {
 
     this.handleNumberOfItemsChange = this.handleNumberOfItemsChange.bind(this);
     this.handlePricePerItemChange = this.handlePricePerItemChange.bind(this);
+    this.handleStateCodeChange = this.handleStateCodeChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -33,6 +37,10 @@ class CalculatorForm extends Component {
 
   handlePricePerItemChange(event) {
     this.setState(actions.setPricePerItem(event.target.value));
+  }
+
+  handleStateCodeChange(event) {
+    this.setState(actions.setStateCode(event.target.value));
   }
 
   handleSubmit(event) {
@@ -56,6 +64,12 @@ class CalculatorForm extends Component {
             <label>
               Price per item:
               <input type="text" name="pricePerItem" value={this.state.pricePerItem} onChange={this.handlePricePerItemChange} />
+            </label>
+          </div>
+          <div>
+            <label>
+              State code:
+              <input type="text" name="stateCode" value={this.state.stateCode} onChange={this.handleStateCodeChange} />
             </label>
           </div>
           <input type="submit" value="Submit"/>
