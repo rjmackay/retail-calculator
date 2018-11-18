@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import CalculatorOutput, { getTotal, getTaxRate } from './CalculatorOutput';
+import CalculatorOutput, { getTotal, getSubTotal, getTaxRate, getTax } from './CalculatorOutput';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -17,11 +17,17 @@ it('', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('getTotal calculates total', () => {
-  expect(getTotal({
+it('getSubTotal calculates total', () => {
+  expect(getSubTotal({
     numberOfItems: 100,
     pricePerItem: 300
   })).toEqual(30000);
+});
+
+it('getTax calculates tax', () => {
+  expect(getTax(1000, 8.0)).toEqual(80);
+  expect(getTax(1000, 4.0)).toEqual(40);
+  expect(getTax(1000, 6.3)).toEqual(63);
 });
 
 it('getTaxRate returns correct rates', () => {
@@ -30,4 +36,9 @@ it('getTaxRate returns correct rates', () => {
   expect(getTaxRate('CA')).toEqual(8.25);
   expect(getTaxRate('NV')).toEqual(8.0);
   expect(getTaxRate('AL')).toEqual(4.0);
+});
+
+it('getTotal returns correct total', () => {
+  expect(getTotal(1000, 100)).toEqual(1100);
+  expect(getTotal(2000, 200)).toEqual(2200);
 });

@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 
 class CalculatorOutput extends Component {
   render() {
-    let total = getTotal(this.props);
+    let subTotal = getSubTotal(this.props);
     let taxRate = getTaxRate(this.props.stateCode);
+    let tax = getTax(subTotal, taxRate);
+    let total = getTotal(subTotal, tax);
     return (
       <div className="CalculatorOutput">
         <h3>Results:</h3>
@@ -12,16 +14,20 @@ class CalculatorOutput extends Component {
           Price per item: ${this.props.pricePerItem}
         </p>
         <p>
-          Total: ${total ? total : ''} (excl. tax)<br />
-          Tax rate: {taxRate}%
+          Subtotal: ${subTotal ? subTotal : ''}<br />
+          Tax: ${tax ? tax : ''} ({taxRate}%)<br />
+          Total: ${total ? total : ''}<br />
         </p>
       </div>
     );
   }
 }
 
-export const getTotal = (submission) => {
+export const getSubTotal = (submission) => {
   return submission.numberOfItems * submission.pricePerItem;
+};
+export const getTotal = (subTotal, tax) => {
+  return subTotal + tax;
 };
 
 const stateCodeMap = {
@@ -34,6 +40,10 @@ const stateCodeMap = {
 
 export const getTaxRate = (stateCode) => {
   return stateCodeMap[stateCode];
+}
+
+export const getTax = (subtotal, taxRate) => {
+  return (subtotal / 100) * taxRate;
 }
 
 export default CalculatorOutput;
