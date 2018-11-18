@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  className="CalculatorOutput"
+>
+  <h3>
+    Results:
+  </h3>
+  <p>
+    Number of items: 
+    100
+    <br />
+    Price per item: $
+    200
+  </p>
+  <p>
+    Total: $
+    20000
+  </p>
+</div>
+`;
