@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import CalculatorOutput, { getTotal, getTaxRate } from './CalculatorOutput';
+import CalculatorOutput, { getTotal, getTaxRate, getTax } from './CalculatorOutput';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -22,6 +22,12 @@ it('getTotal calculates total', () => {
     numberOfItems: 100,
     pricePerItem: 300
   })).toEqual(30000);
+});
+
+it('getTax calculates tax', () => {
+  expect(getTax(1000, 8.0)).toEqual(80);
+  expect(getTax(1000, 4.0)).toEqual(40);
+  expect(getTax(1000, 6.3)).toEqual(63);
 });
 
 it('getTaxRate returns correct rates', () => {
