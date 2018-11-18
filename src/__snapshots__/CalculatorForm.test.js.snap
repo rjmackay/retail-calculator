@@ -32,6 +32,17 @@ exports[`saves numberOfItems to state and outputs it 1`] = `
         />
       </label>
     </div>
+    <div>
+      <label>
+        State code:
+        <input
+          name="stateCode"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
     <input
       type="submit"
       value="Submit"
@@ -69,6 +80,17 @@ exports[`saves numberOfItems to state and outputs it 2`] = `
           onChange={[Function]}
           type="text"
           value="200"
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        State code:
+        <input
+          name="stateCode"
+          onChange={[Function]}
+          type="text"
+          value="UT"
         />
       </label>
     </div>
