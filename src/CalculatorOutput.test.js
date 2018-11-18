@@ -11,7 +11,7 @@ it('renders without crashing', () => {
 
 it('', () => {
   const component = renderer.create(
-    <CalculatorOutput numberOfItems="100" pricePerItem="200" />,
+    <CalculatorOutput numberOfItems="100" pricePerItem="200" stateCode="UT" />,
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();

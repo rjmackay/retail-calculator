@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class CalculatorOutput extends Component {
   render() {
     let total = getTotal(this.props);
+    let taxRate = getTaxRate(this.props.stateCode);
     return (
       <div className="CalculatorOutput">
         <h3>Results:</h3>
@@ -11,7 +12,8 @@ class CalculatorOutput extends Component {
           Price per item: ${this.props.pricePerItem}
         </p>
         <p>
-          Total: ${total ? total : ''}
+          Total: ${total ? total : ''} (excl. tax)<br />
+          Tax rate: {taxRate}%
         </p>
       </div>
     );
